@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="apple-mobile-web-app-title" content="DOC2U" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    
+    <title>DOC2U- Get your documents delivered to You on time</title>
+
+    {% include 'boilerMaterial/imports.html'%}
+
+  </head>
+
+  <body translate="no">
+
+    {% include 'boilerMaterial/header.html'%}
+<div class="container">
+<div class="row">
+  <div class="cols">
+
+  <div class="card" style="width: 25rem">
+    <img
+      class="card-img-top"
+      src="{% static 'images/download.jpg' %}"
+      alt="Card image"
+      style="width: 100%"
+    />
+    <div class="card-body">
+      <h4 class="card-title">John Doe</h4>
+      <p class="card-text">
+        Some example text some example text. John Doe is an architect and
+        engineer
+      </p>
+      <a href="#" class="btn btn-primary">See Profile</a>
+    </div>
+  </div>
+
+</div>
+
+</div>
+</div>
+
+    {% include 'boilerMaterial/footer.html' %}
+
+  </body>
+</html>

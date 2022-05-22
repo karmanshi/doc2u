@@ -1,0 +1,79 @@
+<!-- login form starts -->
+
+<div id="id01" class="modal">
+  <form class="modal-content animate" action="/accounts/login/" method="post">
+    {% csrf_token %}
+    <div class="imgcontainer">
+      <span
+        onclick="document.getElementById('id01').style.display='none'"
+        class="close"
+        title="Close Modal"
+        >&times;</span
+      >
+    </div>
+
+    <div class="container">
+        <h1>Login</h1>
+        <p>Please fill in this form to Login to your account.</p>
+      <hr />
+
+      <input
+        type="text"
+        placeholder="Enter Username"
+        name="username"
+        title="Enter Username"
+        required
+        pattern="([A-Za-z\s]+)"
+      />
+
+      <input
+        type="password"
+        placeholder="Enter Password"
+        id="password"
+        name="password"
+        required
+      />
+
+      <label for="showpwd1">
+        <input type="checkbox" name="showpwd1" onclick="shopwd()" /> Show
+        Password
+      </label>
+
+      <div class="clearfix"></div>
+
+      <span class="psw"
+        >Not a User?
+        <a
+          href="#"
+          onclick="document.getElementById('id02').style.display='block';document.getElementById('id01').style.display='none';"
+          >Register</a
+        ></span
+      >
+      <button type="submit">Login</button>
+    </div>
+  </form>
+</div>
+
+<script>
+  function shopwd() {
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+
+  // Get the modal
+
+  var modal = document.getElementById("id01");
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal1) {
+      modal.style.display = "none";
+    }
+  };
+</script>
+
+<!-- login form ends -->

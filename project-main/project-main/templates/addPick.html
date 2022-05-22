@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Add a Pickup</title>
+    {% include 'boilerMaterial/imports.html' %}
+    
+  </head>
+  <body>
+    {% include 'boilerMaterial/header.html'%}
+<div class="container">
+  <div class="row">
+    <div class="cols">
+      <form class="animate " action="/addPick/" method="post">
+          {% csrf_token %}
+        
+      
+          <div class="container">
+              <h1>Add a Pickup Request</h1>
+              <p>Please fill in this form to make a request.</p>
+            <hr />
+      
+            <input
+              type="text"
+              placeholder="Enter Name of Person to Pick document from"
+              name="pickupPersonName"
+              titie="Enter Name of Person to Pick document from"
+              pattern="([A-Za-z\s]+)"
+              required
+            />
+      
+            <input
+              type="text"
+              placeholder="Enter Address of Person to Pick document from"
+              name="pickupAddress"
+              titie="Enter Address of Person to Pick document from"
+              pattern="([A-Za-z\s0-9]+)"
+              required
+              />
+      
+            <input
+              type="text"
+              placeholder="Enter Number of Person to Pick document from"
+              name="pickupPersonNumber"
+              titie="Enter Number of Person to Pick document from"
+              required
+            />
+      
+            <input
+              type="text"
+              placeholder="Enter Delivery Address"
+              name="deliveryAddress"
+              titie="Enter Delivery Address"
+              pattern="([A-Za-z\s0-9]+)"
+              required
+              />
+      
+            <input
+              type="text"
+              placeholder="Enter Timelimit to Delivery Document In"
+              name="timeLimit"
+              titie="Enter Timelimit to Delivery Document In"
+              required
+            />
+      
+            <button type="submit">Add This Pickup</button>
+          </div>
+        </form>
+    
+        
+      </div>
+</div>
+</div>
+{% include 'boilerMaterial/footer.html' %}
+      </body>
+</html>

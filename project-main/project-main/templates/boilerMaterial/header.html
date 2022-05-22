@@ -1,0 +1,119 @@
+{% load static %}
+<!-- header starts -->
+  
+<header
+  class="header-area overlay"
+  style="
+    position: relative;
+    height: 80vh;
+    background-image: url({% static 'images/bg.jpg' %});
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  "
+>
+  <nav class="navbar navbar-expand-md navbar-dark">
+    <div class="container">
+      <a href="/" class="navbar-brand">DOC2U</a>
+
+      <button
+        type="button"
+        class="navbar-toggler collapsed"
+        data-bs-toggle="collapse"
+        data-target="#main-nav"
+        data-bs-target="#main-nav"
+      >
+        <span class="menu-icon-bar"></span>
+        <span class="menu-icon-bar"></span>
+        <span class="menu-icon-bar"></span>
+      </button>
+
+      <div id="main-nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+
+          <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+
+          <!-- Create an about us page -->
+          <li class="nav-item"><a href="/about_us" class="nav-link">About Us</a></li>
+          
+          
+          {% if user.is_authenticated %}
+          <!-- nav items for only when user is logged in starts -->
+
+          <li class="dropdown">
+              <a href="#" class="nav-item nav-link" data-toggle="dropdown-menu">Hello, <u>{{user.first_name}}</u></a>
+              <div class="dropdown-menu">            
+                <a href="/accounts/addDetails" class="dropdown-item">Add Details</a>
+                <a href="/accounts/logout" class="dropdown-item">Logout</a>
+              </div>
+            </li>
+          
+          <li class="nav-item">
+          </li>
+          <!--nav items for only when user is logged in ends-->
+          {% else %}
+          <!--nav items for only when user in not logged in starts-->
+          <li class="nav-item">
+            <a href="#" onclick="document.getElementById('id01').style.display='block';document.getElementById('id02').style.display='none';" class="nav-link">Login</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" onclick="document.getElementById('id02').style.display='block';document.getElementById('id01').style.display='none';" class="nav-link">Register</a>
+          </li>
+          <!--nav items for only when user in not logged in ends-->
+          
+          {% endif %}
+
+          <li class="nav-item"><a href="/contact" class="nav-link">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="banner">
+    <div class="container">
+
+
+      {% if user.is_authenticated %}
+      <p>
+        Want Some Documents to be delivered Somewhere and You don't want to go?
+      </p>
+      <h1>Use DOC2U</h1>
+      
+      <!--To change the button in the banner according to the user status i.e., 
+        for User it will be Add a new Pickup and 
+        for dleivery agents it will be to register a pickup for themselves
+      -->
+
+      {% if user.otherdetails.status == "User" %}
+      <!--for normal user-->
+      <a href="/addPick" class="button button-primary">Add New PickUp</a>
+      {% else %}
+      <!--for delivery agents-->
+      <a href="/dlvrydbd" class="button button-primary">Register PickUp</a>
+      <a href="/dlvryhistory" class="button button-primary">PickUp History</a>
+
+      {% endif %}
+
+
+
+
+      {% else %}
+      <p>
+        Want Some Documents to be delivered Somewhere and You don't want to go?
+      </p>
+      <h1>Use DOC2U</h1>
+      
+      <!-- Add link to about us page -->
+      <a href="/about_us" class="button button-primary">Learn More</a>
+      {% endif %}
+
+    </div>
+  </div>
+</header>
+<!-- header ends -->
+
+
+
+
+{% include 'forms/login.html' %}
+{% include 'forms/registration.html' %}

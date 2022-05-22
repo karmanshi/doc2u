@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Details</title>
+	{% include 'boilerMaterial/imports.html' %}
+
+</head>
+<body>
+    {% include 'boilerMaterial/header.html'%}
+
+	<div class="container mt-5">
+		<h1 style="font-family: 'Arial Rounded MT', 'Lucida Handwriting';">Personal Details</h1>
+		<table class="table table-bordered">
+			<tr>
+				<th>First Name</th>
+				<td>{{ user.first_name }}</td>
+			</tr>
+			<tr>
+				<th>Last Name</th>
+				<td>{{ user.last_name }}</td>
+			</tr>
+			<tr>
+				<th>D.O.B.</th>
+				<td>{{ user.otherdetails.dob }}</td>
+			</tr>
+			<tr>
+				<th>Gender</th>
+				<td>{{ user.otherdetails.gender }}</td>
+			</tr>
+			<tr>
+				<th>Address</th>
+				<td>{{ user.otherdetails.address }}</td>
+			</tr>
+			<tr>
+				<th>Phone Number</th>
+				<td>{{ user.otherdetails.phoneNumber }}</td>
+			</tr>
+			<tr>
+				<th>Email Id</th>
+				<td>{{ user.email }}</td>
+			</tr>
+
+		</table>
+	</div>
+
+
+	<div class="container form_section">
+		
+		<h1 style="font-family: 'Arial Rounded MT', 'Lucida Handwriting';">Add Details</h1>
+			<form method="POST" class="Login">
+
+				{% csrf_token %}
+				<p id="alert"></p>
+
+				<input type="text" name="aadharNo" id="aadharNo" 
+                placeholder="Aadhar Number" title="Enter Aadhar Number">
+				<br>
+
+				<input type="text" name="drivingLicenseNo" id="drivingLicenseNo" 
+                placeholder="Driving License Number" title="Enter Driving License Number">
+				<br>
+				
+				<input type="text" name="address" id="address" 
+                placeholder="address" title="Enter address">
+				<br>
+				
+				
+				<button>Update Details</button>
+			</form>
+	</div>
+
+	{% include 'boilerMaterial/footer.html' %}
+</body>
+</html>
